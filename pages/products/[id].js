@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Header from '../../components/Header';
-import { getProductsById } from '../../db';
+import Footer from '../../components/Footer';
 import Link from 'next/link';
 import cookies from 'js-cookie';
 
@@ -13,12 +13,13 @@ const Product = (props) => {
   function formatPrice(price) {
     return `$${(price * 0.001).toFixed(3)}`;
   }
-
   function updatePrice(e) {
+    e.preventDefault();
     setQuantity(e.target.value);
   }
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     setQuantity(quantity * numberPrice);
   }
 
@@ -26,11 +27,40 @@ const Product = (props) => {
 
   function setCookies() {
     const newQuantity = quantity;
-    cookies.getJSON('productCart');
-    cookies.set('productCart', newQuantity);
-    window.location.reload();
-  }
+    const totalPrice = quantity * numberPrice;
 
+    let getCookies = ('productCart', cookies.getJSON('productCart'));
+    console.log(getCookies);
+
+    // If empty cookie, creates a new array
+    if (!getCookies) {
+      getCookies = [];
+    }
+
+    const { name } = props.item;
+
+    // Checks if product already exists on cart
+    const cartProduct = getCookies.find((product) => product.name === name);
+
+    // Product already existed on cart
+    if (cartProduct) {
+      cartProduct.quantity =
+        parseInt(cartProduct.quantity) + parseInt(newQuantity);
+      cartProduct.price = cartProduct.quantity * numberPrice;
+    }
+
+    // Product didn't exist on cart
+    else {
+      getCookies.push({
+        name: name,
+        image: props.item.url,
+        quantity: newQuantity,
+        price: totalPrice,
+      });
+    }
+    cookies.set('productCart', getCookies);
+    // window.location.reload();
+  }
   return (
     <>
       <div>
@@ -49,7 +79,7 @@ const Product = (props) => {
         <div className="catalog">
           <ul>
             <li className="mainLi" key={props.item.id}>
-              <img src={props.item.url} />
+              <img src={props.item.url} alt="product" />
               <br />
               <div className="description">
                 <h3>{props.item.name}</h3>
@@ -59,7 +89,7 @@ const Product = (props) => {
                       className="btns"
                       onClick={() => setQuantity(quantity + numberPrice)}
                     >
-                      Add to Cart
+                      Go to Cart
                     </button>
                   </a>
                 </Link>
@@ -77,17 +107,20 @@ const Product = (props) => {
                   </form>
                 </div>
                 <br />
-                <p className="totalProduct">
-                  total: $ {quantity * numberPrice}
-                </p>
-
+                <button
+                  className="setCookies"
+                  onClick={() => {
+                    setCookies();
+                    // inCart();
+                  }}
+                >
+                  Add Items
+                </button>
                 <strong className="price">
                   {formatPrice(props.item.price)}
                 </strong>
                 <br />
-
                 <p>{props.item.description}</p>
-                <button onClick={setCookies}>Add Items</button>
               </div>
             </li>
           </ul>
@@ -119,6 +152,139 @@ const Product = (props) => {
         </div>
       </main>
 
+      <Footer />
+      <style jsx>{`
+        .container {
+          min-height: 100vh;
+          padding: 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        main {
+          padding: 5rem 0;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding-top: 20px;
+        }
+
+        h1 {
+          font-family: 'Comfortaa', cursive;
+        }
+
+        h3 {
+          font-family: 'Monoton', cursive;
+        }
+
+        ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+
+        .mainLi {
+          list-style: none;
+          align-text: center;
+          font-family: 'Comfortaa', cursive;
+          margin-bottom: 60px;
+          border-bottom: 5px solid #e6e6e6;
+          padding-bottom: 20px;
+        }
+
+        img {
+          width: 50%;
+          padding: 20px;
+          margin-left: 280px;
+        }
+
+        .buy {
+          width: 10%;
+        }
+
+        p {
+          font-family: 'Comfortaa', cursive;
+          line-height: 1.6;
+        }
+
+        .description {
+          background: #f7cac9;
+          border-radius: 5px;
+          width: 50%;
+          padding: 20px;
+          padding-top: 5px;
+          margin-bottom: 70px;
+          margin: auto;
+        }
+
+        button {
+          float: right;
+          font-family: 'Comfortaa', cursive;
+          padding: 10px;
+          margin-right: 20px;
+          margin-top: -50px;
+          border-radius: 6px;
+          background: #2eb82e;
+          color: #fff;
+        }
+
+        .setCookies {
+          float: right;
+          font-family: 'Comfortaa', cursive;
+          padding: 5px;
+          margin-top: -5px;
+          margin-right: 20px;
+          border-radius: 6px;
+          background: #2eb82e;
+          color: #fff;
+        }
+
+        .price {
+          letter-spacing: 0.1em;
+        }
+
+        h2 {
+          text-align: center;
+          margin-top: -30px;
+        }
+
+        li {
+          float: center;
+          font-family: 'Comfortaa', sans;
+          line-height: 2.5;
+        }
+
+        .ulFeatures {
+          float: center;
+        }
+
+        form {
+          float: right;
+          margin-right: 20px;
+        }
+
+        input {
+          boder: 2px solid #fff;
+          border-radius: 4px;
+          text-align: center;
+        }
+
+        input:focus {
+          outline: none;
+        }
+
+        .totalProduct {
+          float: right;
+          font-weight: 900;
+          margin-top: 8px;
+          letter-spacing: 0.1em;
+          margin-right: 20px;
+        }
+      `}</style>
       <style jsx global>{`
         html,
         body {
@@ -141,8 +307,11 @@ export default Product;
 // getServerSideProps will ONLY be run on the server, so
 // you can write code here that is "secret" - eg. passwords,
 // database connection information, etc.
-export function getServerSideProps(context) {
-  const item = getProductsById(context.params.id);
+export async function getServerSideProps(context) {
+  const { getProductsById } = await import('../../db.js');
+  const item = await getProductsById(context.query.id);
+
+  // const { getProducts } = await import('../db.js')
 
   if (item === undefined) {
     return { props: {} };
@@ -151,7 +320,23 @@ export function getServerSideProps(context) {
   return {
     // will be passed to the page component as props
     props: {
-      item,
+      item: item[0],
     },
   };
 }
+
+// export async function getServerSideProps(context) {
+//   const item = await getProductsById(context.params.id);
+
+//   if (item === undefined) {
+//     return { props: {} };
+//   }
+
+//   return {
+//     // will be passed to the page component as props
+//     props: {
+//       item,
+//     },
+//   };
+// }
+// import { getProductsById } from '../../db';

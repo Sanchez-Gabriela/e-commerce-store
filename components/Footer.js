@@ -26,9 +26,7 @@ export default function Footer() {
       <div className="bottomLogo">
         <img src="/pinky.png" alt="keyboard-logo" />
       </div>
-      {/* <div className="network">
-        <img src="/social_media.png" alt="network" />
-      </div> */}
+      <span className="footerName"> &copy; Bendfinger 2020</span>
 
       <style jsx>{`
         .navbar {
@@ -71,6 +69,12 @@ export default function Footer() {
         }
 
         .network {
+        }
+
+        .footerName {
+          float: right;
+          margin: -35px;
+          margin-right: 20px;
         }
       `}</style>
       <style jsx global>{`
