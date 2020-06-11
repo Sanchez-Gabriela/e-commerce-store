@@ -3,15 +3,12 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import { getProducts } from '../db.js';
-
-const productList = getProducts();
 
 function formatPrice(price) {
   return `$${(price * 0.001).toFixed(3)}`;
 }
 
-const Products = () => (
+const Products = (props) => (
   <div className="container">
     <Head>
       <title>Catalog</title>
@@ -29,13 +26,13 @@ const Products = () => (
       <h1>Catalog</h1>
       <div className="catalog">
         <ul>
-          {productList.map((product) => {
+          {props.products.map((product) => {
             return (
               <li key={product.id}>
-                <img src={product.url} />
+                <img src={product.url} alt="product" />
                 <div className="description">
                   <h3>{product.name}</h3>
-                  <Link href={'/item' + product.id}>
+                  <Link href={'/products/' + product.id}>
                     <a>
                       <button>Go to item</button>
                     </a>
@@ -146,3 +143,15 @@ const Products = () => (
 );
 
 export default Products;
+
+export async function getServerSideProps(context) {
+  const { getProducts } = await import('../db.js');
+
+  const products = await getProducts();
+
+  return {
+    props: {
+      products,
+    },
+  };
+}

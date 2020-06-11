@@ -18,7 +18,7 @@ export default function Header() {
     { name: 'Home', url: '/' },
     { name: 'About', url: '/about' },
     { name: 'Products', url: '/products' },
-    { name: 'Cart', url: '/cart' },
+    { name: 'Shop', url: '/cart' },
   ];
 
   return (

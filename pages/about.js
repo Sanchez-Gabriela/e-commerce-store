@@ -1,5 +1,7 @@
+import React from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function About() {
   return (
@@ -17,7 +19,7 @@ export default function About() {
         ></link>
       </Head>
 
-      <Header></Header>
+      <Header />
 
       <main>
         <h1 className="title">About us</h1>
@@ -28,16 +30,12 @@ export default function About() {
           </div>
 
           <div className="main-pic">
-            <h3>working space</h3>
+            <img src="/store.jpg" alt="store" />
           </div>
         </div>
       </main>
 
-      <footer>
-        <logo>
-          <img src="./Paypal.png" alt="payments" />
-        </logo>
-      </footer>
+      <Footer />
 
       <style jsx>{`
         .container {
@@ -54,7 +52,6 @@ export default function About() {
           flex: 1;
           justify-content: center;
           align-items: center;
-          border: 5px solid #db7093;
           width: 90%;
           height: 50%;
           font-family: 'Comfortaa', cursive;
@@ -75,16 +72,6 @@ export default function About() {
           width: 100%;
           height: 100px;
           border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -125,9 +112,15 @@ export default function About() {
           align-items: center;
           justify-content: center;
           flex-wrap: wrap;
-
           max-width: 800px;
           margin-top: 3rem;
+        }
+
+        img {
+          width: 50%;
+          margin-top: 50px;
+          margin-left: 100px;
+          border-radius: 4px;
         }
       `}</style>
 
