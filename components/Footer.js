@@ -14,13 +14,6 @@ export default function Footer() {
     ></link>
   </div>;
 
-  const linkList = [
-    { name: 'Home', url: '/' },
-    { name: 'About', url: '/about' },
-    { name: 'Products', url: '/products' },
-    { name: 'Cart', url: '/cart' },
-  ];
-
   return (
     <div className="footer">
       <div className="bottomLogo">

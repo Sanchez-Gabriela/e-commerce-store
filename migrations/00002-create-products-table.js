@@ -7,7 +7,8 @@ exports.up = async (sql) => {
 		quantity INT NOT NULL, 
 		price INT NOT NULL, 
 		url VARCHAR NOT NULL, 
-		description TEXT
+		description TEXT,
+		audio VARCHAR NOT NULL
 	  )
 	`;
 };

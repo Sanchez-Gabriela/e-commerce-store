@@ -30,7 +30,6 @@ const Product = (props) => {
     const totalPrice = quantity * numberPrice;
 
     let getCookies = ('productCart', cookies.getJSON('productCart'));
-    console.log(getCookies);
 
     // If empty cookie, creates a new array
     if (!getCookies) {
@@ -59,7 +58,7 @@ const Product = (props) => {
       });
     }
     cookies.set('productCart', getCookies);
-    // window.location.reload();
+    window.location.reload();
   }
   return (
     <>
@@ -70,6 +69,10 @@ const Product = (props) => {
         ></link>
         <link
           href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500&display=swap"
+          rel="stylesheet"
+        ></link>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
         ></link>
       </div>
@@ -89,7 +92,8 @@ const Product = (props) => {
                       className="btns"
                       onClick={() => setQuantity(quantity + numberPrice)}
                     >
-                      Go to Cart
+                      {' '}
+                      <i className="material-icons">shopping_cart</i>
                     </button>
                   </a>
                 </Link>
@@ -114,7 +118,7 @@ const Product = (props) => {
                     // inCart();
                   }}
                 >
-                  Add Items
+                  Add to Cart
                 </button>
                 <strong className="price">
                   {formatPrice(props.item.price)}
@@ -178,6 +182,7 @@ const Product = (props) => {
 
         h3 {
           font-family: 'Monoton', cursive;
+          font-size: 22px;
         }
 
         ul {
@@ -199,7 +204,7 @@ const Product = (props) => {
         img {
           width: 50%;
           padding: 20px;
-          margin-left: 280px;
+          margin-left: 350px;
         }
 
         .buy {
@@ -214,7 +219,7 @@ const Product = (props) => {
         .description {
           background: #f7cac9;
           border-radius: 5px;
-          width: 50%;
+          width: 40%;
           padding: 20px;
           padding-top: 5px;
           margin-bottom: 70px;
@@ -224,12 +229,16 @@ const Product = (props) => {
         button {
           float: right;
           font-family: 'Comfortaa', cursive;
-          padding: 10px;
+          padding: 5px;
           margin-right: 20px;
-          margin-top: -50px;
+          margin-top: -60px;
           border-radius: 6px;
           background: #2eb82e;
           color: #fff;
+        }
+
+        button:focus {
+          outline: none;
         }
 
         .setCookies {
@@ -245,6 +254,7 @@ const Product = (props) => {
 
         .price {
           letter-spacing: 0.1em;
+          font-size: 20px;
         }
 
         h2 {
@@ -324,19 +334,3 @@ export async function getServerSideProps(context) {
     },
   };
 }
-
-// export async function getServerSideProps(context) {
-//   const item = await getProductsById(context.params.id);
-
-//   if (item === undefined) {
-//     return { props: {} };
-//   }
-
-//   return {
-//     // will be passed to the page component as props
-//     props: {
-//       item,
-//     },
-//   };
-// }
-// import { getProductsById } from '../../db';

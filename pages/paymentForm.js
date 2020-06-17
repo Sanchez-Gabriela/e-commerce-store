@@ -20,6 +20,7 @@ function Summary(productCart) {
 }
 function PaymentForm(props) {
   const productCart = props.productCart;
+
   return (
     <>
       <Head>
@@ -33,7 +34,7 @@ function PaymentForm(props) {
           rel="stylesheet"
         ></link>
       </Head>
-      <Header></Header>
+      <Header />
       <div className="content">
         <div className="wrapper">
           <div className="container">
@@ -67,24 +68,31 @@ function PaymentForm(props) {
                 </div>
                 <div>
                   <label for="zip">Postal Code</label>
-                  <input type="text" name="zip" />
+                  <input type="number" name="zip" />
                 </div>
               </div>
               <h1>
                 <i className="far fa-credit-card"></i> Payment Information
               </h1>
               <div className="cc-num">
-                <label for="card-num">Credit Card No.</label>
-                <input type="text" name="card-num" />
+                <form>
+                  <label for="card-num">Credit Card No.</label>
+                  <input
+                    type="number"
+                    name="card-num"
+                    maxLength="16"
+                    pattern="\d{16}"
+                  />
+                </form>
               </div>
               <div className="cc-info">
                 <div>
                   <label for="card-num">Exp</label>
-                  <input type="text" name="expire" />
+                  <input type="number" name="expire" />
                 </div>
                 <div>
                   <label for="card-num">CCV</label>
-                  <input type="text" name="security" />
+                  <input type="number" name="security" />
                 </div>
                 <span style={{ fontSize: '20px' }}>
                   {' '}
