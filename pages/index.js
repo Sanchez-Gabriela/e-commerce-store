@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 const Home = () => (
   <div className="container">
@@ -32,6 +31,11 @@ const Home = () => (
           <img src="/lotOf.png" alt="keyboard" />
         </div>
       </div>
+      <div className="socialMedia">
+        <img className="icon" src="/instagram.png" alt="instagram" />
+        <img className="icon" src="/facebook.png" alt="instagram" />
+        <img className="icon" src="/twitter.png" alt="instagram" />
+      </div>
     </main>
 
     <style jsx>{`
@@ -46,6 +50,7 @@ const Home = () => (
       }
 
       .title {
+        margin-top: 100px;
         color: #fff;
         font-family: 'Monoton', cursive;
         font-size: 50px;
@@ -72,16 +77,16 @@ const Home = () => (
       img {
         transform: rotate(5deg);
       }
-      
+
       .buttons {
         display: flex;
         justify-content: left;
         margin-top: -80px;
         margin-left: 212px;
-      } 
+      }
 
       .button {
-        background-color: #E857C3;
+        background-color: #e857c3;
         border: 5px solid white;
         color: white;
         padding: 16px 32px;
@@ -94,11 +99,22 @@ const Home = () => (
         text-decoration: none;
         cursor: pointer;
         font-family: 'Comfortaa', cursive;
-        }
+      }
 
-        .button:hover {
-          opacity: 1;
-        }
+      .button:hover {
+        opacity: 1;
+      }
+
+      .icon {
+        width: 3%;
+        transform: rotate(0deg);
+        padding: 5px;
+        margin-left: 50px;
+      }
+
+      .socialMedia {
+        margin-left: 160px;
+        margin-bottom: -10px;
       }
     `}</style>
 

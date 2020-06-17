@@ -24,7 +24,6 @@ function Summary(productCart) {
 
 function Cart(props) {
   const productCart = props.productCart;
-  console.log('productCart', productCart);
 
   function increment(indexToIncrement) {
     const newCookies = productCart.map((product, index) =>
@@ -99,21 +98,21 @@ function Cart(props) {
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="itemSection">
               {productCart.map((product, index) => (
-                <tr>
+                <tr className="ItemSection">
                   <td>
                     <img
-                      style={{ width: '20px', height: '20px' }}
                       src={product.url}
                       alt={product.name}
+                      style={{ width: '20px', height: '20px' }}
                     />
                   </td>
                   <td>{product.name}</td>
                   <td>{product.quantity} </td>
                   <td>{formatPrice(product.price)}</td>
-                  <br />
-                  <br />
+                  {/* <br />
+                  <br /> */}
                   <td>
                     <button onClick={() => increment(index)}>&#10010;</button>
                   </td>
@@ -275,6 +274,10 @@ function Cart(props) {
 
         .cartHeart {
           width: 10%;
+        }
+
+        .itemSection {
+          background-color: 'lightgrey';
         }
       `}</style>
       <style jsx global>{`
