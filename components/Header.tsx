@@ -37,48 +37,63 @@ export default function Header() {
               );
             })}
           </div>
+          <img className="cartShop" src="/cart-simple.png" alt="cartShopping" />
+          <span>
+            {itemsInCart
+              ? `${itemsInCart.reduce(
+                  (acc: string, product: ItemInCart) =>
+                    acc + Number(product.quantity),
+                  0,
+                )}`
+              : '0'}
+          </span>
         </div>
-        <span>
-          Items:
-          {itemsInCart
-            ? `${itemsInCart.reduce(
-                (acc: string, product: ItemInCart) =>
-                  acc + Number(product.quantity),
-                0,
-              )}`
-            : '0'}
-        </span>
         <style jsx>{`
           .navbar {
             width: 100%;
             height: 70px;
-            padding: 30px 30px;
+            // padding: 30px 30px;
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            align-items: center;
+            margin-top: 10px;
           }
-          .span {
-            float: left;
+          span {
+            margin-left: -70px;
           }
 
           .logo-div a {
             width: 60px;
-            float: left;
+            // float: left;
             text-decoration: none;
             color: black;
             font-weight: bold;
             font-size: 25px;
-            margin-left: 40px;
+            // margin-left: 40px;
             font-family: 'Comfortaa', cursive;
+            margin-right: 430px;
+          }
+
+          .logo-div {
+            float: right;
           }
 
           .navbar-links a {
-            float: left;
+            // float: right;
             text-decoration: none;
             color: black;
             padding-left: 30px;
             padding-right: 30px;
             font-family: 'Monoton', cursive;
+          }
+
+          .cartShop {
+            width: 3%;
+          }
+
+          .navbar-links {
+            margin-right: -80px;
           }
         `}</style>
       </div>

@@ -54,6 +54,7 @@ const Home = () => (
         font-family: 'Monoton', cursive;
         font-size: 50px;
         line-height: 2;
+        margin-right: 80px;
       }
 
       main {

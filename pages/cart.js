@@ -110,11 +110,18 @@ function Cart(props) {
                   </td>
                   <td>{product.name}</td>
                   <td className="productQuantity">{product.quantity} </td>
-                  <td data-cy="productPrice">{formatPrice(product.price)}</td>
+                  <td className="pricePr" data-cy="productPrice">
+                    {formatPrice(product.price)}
+                  </td>
                   {/* <br />
                   <br /> */}
                   <td>
-                    <button className="testButton" onClick={() => increment(index)}>&#10010;</button>
+                    <button
+                      className="testButton"
+                      onClick={() => increment(index)}
+                    >
+                      &#10010;
+                    </button>
                   </td>
                   <td>
                     <button onClick={() => decrement(index)}>&#9866;</button>
@@ -214,7 +221,7 @@ function Cart(props) {
 
         td,
         th {
-          padding-bottom: 40px;
+          padding-bottom: 15px;
         }
 
         h3 {
@@ -276,8 +283,8 @@ function Cart(props) {
           width: 10%;
         }
 
-        .itemSection {
-          background-color: 'lightgrey';
+        .productQuantity {
+          text-align: center;
         }
       `}</style>
       <style jsx global>{`
