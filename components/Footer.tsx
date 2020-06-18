@@ -1,19 +1,6 @@
 import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
 
 export default function Footer() {
-  <div>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
-      rel="stylesheet"
-    ></link>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500&display=swap"
-      rel="stylesheet"
-    ></link>
-  </div>;
-
   return (
     <div className="footer">
       <div className="bottomLogo">

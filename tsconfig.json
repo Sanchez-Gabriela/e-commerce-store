@@ -15,5 +15,11 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/cart.js"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/cart.js",
+    "pages/products/[id].js"
+  ]
 }

@@ -109,12 +109,12 @@ function Cart(props) {
                     />
                   </td>
                   <td>{product.name}</td>
-                  <td>{product.quantity} </td>
+                  <td className="productQuantity">{product.quantity} </td>
                   <td>{formatPrice(product.price)}</td>
                   {/* <br />
                   <br /> */}
                   <td>
-                    <button onClick={() => increment(index)}>&#10010;</button>
+                    <button className="testButton" onClick={() => increment(index)}>&#10010;</button>
                   </td>
                   <td>
                     <button onClick={() => decrement(index)}>&#9866;</button>
