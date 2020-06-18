@@ -8,7 +8,7 @@ context('change products quantity', () => {
     cy.contains('Add to Cart').click();
     cy.visit('http://localhost:3000/cart');
     cy.get('.testButton').click();
-    cy.get('.productQuantity');
-    cy.getCookie('2');
+    cy.get('.productQuantity').contains('2');
+    cy.get('[data-cy="productPrice"]').contains('4.398');
   });
 });

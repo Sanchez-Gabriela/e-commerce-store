@@ -110,7 +110,7 @@ function Cart(props) {
                   </td>
                   <td>{product.name}</td>
                   <td className="productQuantity">{product.quantity} </td>
-                  <td>{formatPrice(product.price)}</td>
+                  <td data-cy="productPrice">{formatPrice(product.price)}</td>
                   {/* <br />
                   <br /> */}
                   <td>
