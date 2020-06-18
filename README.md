@@ -1,18 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# E-COMMERCE-STORE SYNTHESIZERS
 
-## Getting Started
+Online Shop that contains:
+- A list of keyboards(products), each with an audio sample and a product description. 
+- A button in every single product (when you click on Go to Item, it goes to products's page).
+- Input with selector to choose quantity.
+- A shopping cart button to go to shopping cart page.
+- A shopping cart page (containing the list of products added to cart, which also shows the total price of all products.
+- 3 buttons in shopping cart to add, reduce the quantity or remove the product.
+- A payment form where the user introduces its data.
+- A thank you page after checkout.
 
-First, run the development server:
+## All technologies used
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Next.js
+- Database with PostgresSQL and migrations (Ley).
+- ESLint which is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs. 
+- Some of the files and components are written in TypeScript.
+- Cookies are being used to save the products in the cart.
+- Cypress (JavaScript End to End Testing Framework).
 
+## Setup instructions
+
+- Install ``create-next-app``
+- Run the development server:
+yarn dev,
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- The data used in the project can be downloaded thanks migrations.
 
 ## Learn More
 
@@ -23,8 +37,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Heroku 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The Next.js app was deployed on Heroku (https://www.heroku.com/#) through GitHub repo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
