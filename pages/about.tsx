@@ -25,8 +25,18 @@ export default function About() {
         <h1 className="title">About us</h1>
         <div className="content">
           <div className="story">
-            <h3>Story</h3>
-            <p>Bendfinger was founded in 2017!</p>
+            <p>
+              Getting our customers the best products for the best price is one
+              of our key strengths, and service is no less important. We want
+              you to get the most for your money while shopping with us, and
+              therefore we have devised our own credo: Added Value. For
+              instance, we've been offering a general 30-Day Money-Back
+              Guarantee since 2014 – long before the EU came up with the
+              directive on mail order purchases. On top of that, in 2015 we
+              decided to offer an extended warranty period of three years – out
+              of our own pocket! Happy customers make us happy in turn, and we
+              appreciate the family atmosphere that prevails in our shop.
+            </p>
           </div>
 
           <div className="main-pic">
@@ -59,7 +69,7 @@ export default function About() {
 
         .content {
           display: flex;
-          justify-content: space-around;
+          flex: 1;
           height: 100%;
         }
 
@@ -93,11 +103,6 @@ export default function About() {
           text-align: center;
         }
 
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
         code {
           background: #fafafa;
           border-radius: 5px;
@@ -107,20 +112,17 @@ export default function About() {
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
         }
 
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-          max-width: 800px;
-          margin-top: 3rem;
+        img {
+          width: 500px;
+          margin-top: 50px;
+          border-radius: 4px;
+          margin-left: -500px;
         }
 
-        img {
-          width: 50%;
+        p {
+          width: 40%;
           margin-top: 50px;
-          margin-left: 100px;
-          border-radius: 4px;
+          line-height: 1.5;
         }
       `}</style>
 
