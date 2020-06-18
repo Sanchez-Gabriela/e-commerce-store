@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
@@ -15,7 +14,7 @@ const Product = (props) => {
   }
   function updatePrice(e) {
     e.preventDefault();
-    setQuantity(e.target.value);
+    setQuantity(Number(e.target.value));
   }
 
   function handleSubmit(e) {
@@ -284,7 +283,7 @@ const Product = (props) => {
         }
 
         input:focus {
-          outline: none;
+          outline: 1px solid lightgrey;
         }
 
         .totalProduct {
