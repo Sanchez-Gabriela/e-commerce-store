@@ -103,9 +103,9 @@ function Cart(props) {
                 <tr className="ItemSection">
                   <td>
                     <img
-                      src={product.url}
+                      src={product.image}
                       alt={product.name}
-                      style={{ width: '20px', height: '20px' }}
+                      style={{ width: '200px' }}
                     />
                   </td>
                   <td>{product.name}</td>
@@ -120,15 +120,15 @@ function Cart(props) {
                       className="testButton"
                       onClick={() => increment(index)}
                     >
-                      &#10010;
+                      &#43;
                     </button>
                   </td>
                   <td>
-                    <button onClick={() => decrement(index)}>&#9866;</button>
+                    <button onClick={() => decrement(index)}>&#45;</button>
                   </td>
                   <td>
                     <button onClick={() => removeProduct(index)}>
-                      &#10008;
+                      &times;
                     </button>
                   </td>
                 </tr>
