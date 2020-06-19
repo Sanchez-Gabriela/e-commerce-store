@@ -12,20 +12,20 @@ Online Shop that contains:
 
 ### Landing Page
 
-![App](/screenshots/landingPage.png)
+<img src="/screenshots/landingPage.png" width="600"/>
 
 ### List of products
 
-![App](/screenshots/productList.png)
+<img src="/screenshots/productList.png" width="600"/>
 
 ### Cart
 
-![App](/screenshots/cart.png)
+<img src="/screenshots/cart.png" width="600"/>
 
 ### PaymentForm
 
 
-![App](/screenshots/PaymentForm.png)
+<img src="/screenshots/PaymentForm.png" width="600"/>
 
 ## All technologies used
 
