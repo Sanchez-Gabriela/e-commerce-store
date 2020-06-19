@@ -99,40 +99,46 @@ function Cart(props) {
             </thead>
 
             <tbody className="itemSection">
-              {productCart.map((product, index) => (
-                <tr className="ItemSection">
-                  <td>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      style={{ width: '200px' }}
-                    />
-                  </td>
-                  <td>{product.name}</td>
-                  <td className="productQuantity">{product.quantity} </td>
-                  <td className="pricePr" data-cy="productPrice">
-                    {formatPrice(product.price)}
-                  </td>
-                  {/* <br />
+              {productCart.length !== 0 ? (
+                productCart.map((product, index) => (
+                  <tr className="ItemSection">
+                    <td>
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        style={{ width: '200px' }}
+                      />
+                    </td>
+                    <td>{product.name}</td>
+                    <td className="productQuantity">{product.quantity} </td>
+                    <td className="pricePr" data-cy="productPrice">
+                      {formatPrice(product.price)}
+                    </td>
+                    {/* <br />
                   <br /> */}
-                  <td>
-                    <button
-                      className="testButton"
-                      onClick={() => increment(index)}
-                    >
-                      &#43;
-                    </button>
-                  </td>
-                  <td>
-                    <button onClick={() => decrement(index)}>&#45;</button>
-                  </td>
-                  <td>
-                    <button onClick={() => removeProduct(index)}>
-                      &times;
-                    </button>
-                  </td>
-                </tr>
-              ))}
+                    <td>
+                      <button
+                        className="testButton"
+                        onClick={() => increment(index)}
+                      >
+                        &#43;
+                      </button>
+                    </td>
+                    <td>
+                      <button onClick={() => decrement(index)}>&#45;</button>
+                    </td>
+                    <td>
+                      <button onClick={() => removeProduct(index)}>
+                        &times;
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <p style={{ textAlign: 'center', fontSize: '25px' }}>
+                  'Your cart is empty.'
+                </p>
+              )}
             </tbody>
           </table>
 
