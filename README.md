@@ -10,6 +10,23 @@ Online Shop that contains:
 - A payment form where the user introduces its data.
 - A thank you page after checkout.
 
+### Landing Page
+
+<img src="/screenshots/landingPage.png" width="600"/>
+
+### List of products
+
+<img src="/screenshots/productList.png" width="600"/>
+
+### Cart
+
+<img src="/screenshots/cart.png" width="600"/>
+
+### PaymentForm
+
+
+<img src="/screenshots/PaymentForm.png" width="600"/>
+
 ## All technologies used
 
 - Next.js
