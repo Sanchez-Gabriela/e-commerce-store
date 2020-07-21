@@ -16,7 +16,7 @@ export default function Header() {
     { name: 'Shop', url: '/cart' },
   ];
 
-  const itemsInCart = cookies.getJSON('productCart');
+  const itemsInCart = cookies.getJSON('productCart') || [];
 
   return (
     <div>
